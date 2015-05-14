@@ -1,0 +1,27 @@
+library(shiny)
+library(protr)
+
+
+shinyUI(navbarPage("FPOP",
+	tabPanel("Submit Job"),    
+	tabPanel("About"),
+	tabPanel("Contact"),    
+
+	fluidPage(
+	titlePanel("FPOP: Fluorescent Protein Oligomeric state Predictor"),
+	sidebarLayout(
+		wellPanel(
+			tags$label("Step 1 - Enter your input sequences (FASTA format)",style="float: none; width: 100%;"),
+			tags$textarea(id="Sequence", rows=5, cols=100, style="float: none; width:100%;", ""),
+			tags$label("OR",style="float: none; width: 100%;"),
+			fileInput('file1', 'Choose file',accept=c('text/FASTA','FASTA','.fasta')),
+		tags$hr(),
+		radioButtons('quote', 'Step 2 - Select protein descriptors',c(AAC='', 'DPC'='"', 'PCP'="'"),'"')
+    		),
+    
+	mainPanel(
+		verbatimTextOutput('contents'),
+		downloadButton('downloadData', 'Download CSV') 
+	)
+	)
+    	)))
