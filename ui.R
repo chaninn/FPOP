@@ -31,6 +31,7 @@ shinyUI(fluidPage(title="FPOP: Fluorescent Protein Oligomerization Predictor", t
                              tabPanel("Citing Us", titlePanel("Citing Us"), includeMarkdown("citingus.md")),
                              tabPanel("Contact", titlePanel("Contact"), includeMarkdown("contact.md"))	
                              
+                             HTML(<p align="center">Copyright © 2015 codes.bio. All rights reserved.<p>)
                   ) #navbarPage
 ) #fluidPage	
 ) #shinyUI
